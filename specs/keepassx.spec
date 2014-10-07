@@ -1,14 +1,14 @@
-%define alpha master
+%define master 20140929
 %define attdir 69
 
 Name:           keepassx
 Version:        2.0
-Release:        0.20140929%{?dist}
+Release:        1.20140929%{?dist}
 Summary:        Cross-platform password manager
 Group:          User Interface/Desktops
 License:        GPLv2+
 URL:            http://www.keepassx.org
-Source0:        http://www.keepassx.org/dev/attachments/download/%{attdir}/%{name}-%{version}-%{alpha}.tar.gz
+Source0:        keepassx-master.zip
 Source1:        %{name}.desktop
 BuildRequires:  qt4-devel > 4.1
 BuildRequires:  libXtst-devel
@@ -37,7 +37,7 @@ information can be considered as quite safe. KeePassX uses a database format
 that is compatible with KeePass Password Safe for MS Windows.
 
 %prep
-%setup -qn keepassx-%{version}-%{alpha}
+%setup -qn keepassx-master
 
 %build
 mkdir build
@@ -104,17 +104,15 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %doc CHANGELOG INSTALL COPYING LICENSE*
 
 %{_bindir}/keepassx
-
-%ifarch i386
-%{_prefix}/lib/keepassx/*.so
-%else
-%{_prefix}/lib64/keepassx/*.so
-%endif
-
+%{_libdir}/keepassx/*.so
 %{_datadir}/keepassx
 %{_datadir}/applications/*.desktop
 %{_datadir}/mimelnk/application/*.desktop
 %{_datadir}/mime/packages/keepassx.xml
 %{_datadir}/icons/hicolor/*/apps/keepassx.*
 %{_datadir}/icons/hicolor/*/mimetypes/application-x-keepassx.*
+
+%changelog
+* Tue Oct 7 2014 George Sapkin <george.sapkin@gmail.com> - 2.0-1.20140929
+- git master 20140929
 
