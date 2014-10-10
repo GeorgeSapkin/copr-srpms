@@ -1,15 +1,13 @@
-%define master 20140929
-%define attdir 69
+%define master 20141009
 
 Name:           keepassx
 Version:        2.0
-Release:        1.20140929%{?dist}
+Release:        1.%{master}.0%{?dist}
 Summary:        Cross-platform password manager
 Group:          User Interface/Desktops
 License:        GPLv2+
 URL:            http://www.keepassx.org
 Source0:        keepassx-master.zip
-Source1:        %{name}.desktop
 BuildRequires:  qt4-devel > 4.1
 BuildRequires:  libXtst-devel
 BuildRequires:  ImageMagick
@@ -53,16 +51,6 @@ make %{?_smp_mflags}
 %install
 cd build
 make install DESTDIR=%{buildroot}
-
-# Use png in _datadir/icons/hicolor instead of xpm in pixmaps
-#mkdir -p %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/
-#convert %{buildroot}%{_datadir}/pixmaps/keepassx.xpm \
-#        %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/keepassx.png
-#rm -f %{buildroot}%{_datadir}/pixmaps/keepassx.xpm
-
-# Menu
-%{__mkdir_p} %{buildroot}%{_datadir}/applications
-%{__cp} %{SOURCE1}  %{buildroot}%{_datadir}/applications/%{name}.desktop
        
 desktop-file-install \
         --dir %{buildroot}%{_datadir}/applications \
@@ -113,6 +101,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/mimetypes/application-x-keepassx.*
 
 %changelog
+* Fri Oct 10 2014 George Sapkin <george.sapkin@gmail.com> - 2.0-1.20141009.0
+- git master 20141009
+
 * Tue Oct 7 2014 George Sapkin <george.sapkin@gmail.com> - 2.0-1.20140929
 - git master 20140929
 
