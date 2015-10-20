@@ -1,4 +1,4 @@
-%define master 20141009
+%define master beta2
 
 Name:           keepassx
 Version:        2.0
@@ -7,7 +7,7 @@ Summary:        Cross-platform password manager
 Group:          User Interface/Desktops
 License:        GPLv2+
 URL:            http://www.keepassx.org
-Source0:        keepassx-master.zip
+Source0:        keepassx-2.0-beta2.tar.gz
 BuildRequires:  qt4-devel > 4.1
 BuildRequires:  libXtst-devel
 BuildRequires:  ImageMagick
@@ -101,6 +101,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/mimetypes/application-x-keepassx.*
 
 %changelog
+* Fri Oct 20 2015 George Sapkin <george.sapkin@gmail.com> - 2.0-1.beta2.0
+- 2.0 beta 2
+
 * Fri Oct 10 2014 George Sapkin <george.sapkin@gmail.com> - 2.0-1.20141009.0
 - git master 20141009
 
