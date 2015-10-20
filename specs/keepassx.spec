@@ -2,7 +2,7 @@
 
 Name:           keepassx
 Version:        2.0
-Release:        1.%{master}.0%{?dist}
+Release:        1.%{master}.1%{?dist}
 Summary:        Cross-platform password manager
 Group:          User Interface/Desktops
 License:        GPLv2+
@@ -35,7 +35,7 @@ information can be considered as quite safe. KeePassX uses a database format
 that is compatible with KeePass Password Safe for MS Windows.
 
 %prep
-%setup -qn keepassx-master
+%setup -qn keepassx-2.0-beta2
 
 %build
 mkdir build
@@ -101,7 +101,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/mimetypes/application-x-keepassx.*
 
 %changelog
-* Fri Oct 20 2015 George Sapkin <george.sapkin@gmail.com> - 2.0-1.beta2.0
+* Fri Oct 20 2015 George Sapkin <george.sapkin@gmail.com> - 2.0-1.beta2.1
 - 2.0 beta 2
 
 * Fri Oct 10 2014 George Sapkin <george.sapkin@gmail.com> - 2.0-1.20141009.0
