@@ -1,13 +1,11 @@
-%define master beta2
-
 Name:           keepassx
-Version:        2.0
-Release:        1.%{master}.1%{?dist}
+Version:        2.0.2
+Release:        1%{?dist}
 Summary:        Cross-platform password manager
 Group:          User Interface/Desktops
 License:        GPLv2+
 URL:            http://www.keepassx.org
-Source0:        keepassx-2.0-beta2.tar.gz
+Source0:        keepassx-2.0.2.tar.gz
 BuildRequires:  qt4-devel > 4.1
 BuildRequires:  libXtst-devel
 BuildRequires:  ImageMagick
@@ -35,7 +33,7 @@ information can be considered as quite safe. KeePassX uses a database format
 that is compatible with KeePass Password Safe for MS Windows.
 
 %prep
-%setup -qn keepassx-2.0-beta2
+%setup -qn keepassx-2.0.2
 
 %build
 mkdir build
@@ -71,7 +69,6 @@ EOF
 install -D -m 644 -p x-keepass.desktop \
   %{buildroot}%{_datadir}/mimelnk/application/x-keepass.desktop
 
-
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 update-desktop-database &> /dev/null ||:
@@ -101,6 +98,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/mimetypes/application-x-keepassx.*
 
 %changelog
+* Wed Feb 24 2016 George Sapkin <george.sapkin@gmail.com> - 2.0.2-1
+- 2.0.2
+
 * Fri Oct 20 2015 George Sapkin <george.sapkin@gmail.com> - 2.0-1.beta2.1
 - 2.0 beta 2
 
